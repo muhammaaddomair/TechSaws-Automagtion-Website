@@ -1,0 +1,600 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes workflow-check {
+  0%,
+  70% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes completion-card {
+  0%,
+  72% {
+    opacity: 0;
+    max-height: 132px;
+    transform: translateY(10px);
+  }
+  80% {
+    opacity: 1;
+    max-height: 132px;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    max-height: 132px;
+    transform: translateY(0);
+  }
+}
+
+@keyframes task-card-complete-shrink {
+  0%,
+  88% {
+    max-height: 132px;
+  }
+  100% {
+    max-height: 52px;
+  }
+}
+
+@keyframes chat-input-sequence {
+  0% {
+    opacity: 0;
+    background: rgb(244 244 245);
+    border-color: rgb(244 244 245 / 70%);
+    color: rgb(24 24 27);
+    border-radius: 999px;
+    height: 3.3rem;
+    transform: translateY(88px);
+  }
+  10%,
+  31% {
+    opacity: 1;
+    background: rgb(244 244 245);
+    border-color: rgb(244 244 245 / 70%);
+    color: rgb(24 24 27);
+    border-radius: 999px;
+    height: 3.3rem;
+    transform: translateY(88px);
+  }
+  39%,
+  62% {
+    opacity: 1;
+    background: rgb(244 244 245);
+    border-color: rgb(244 244 245 / 70%);
+    color: rgb(24 24 27);
+    border-radius: 2rem;
+    height: 6.65rem;
+    transform: translateY(88px);
+  }
+  82%,
+  100% {
+    opacity: 1;
+    background: rgb(9 9 11 / 42%);
+    border-color: rgb(255 255 255 / 10%);
+    color: rgb(244 244 245);
+    border-radius: 2rem;
+    height: 6.65rem;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-inline {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--typing-width, 100%);
+  }
+}
+
+@keyframes execution-step {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes execution-steps-collapse {
+  0%,
+  88% {
+    opacity: 1;
+    max-height: 5rem;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes input-control-shift {
+  0%,
+  62% {
+    background-color: rgb(228 228 231);
+    color: rgb(63 63 70);
+  }
+  82%,
+  100% {
+    background-color: rgb(255 255 255 / 10%);
+    color: rgb(244 244 245);
+  }
+}
+
+@keyframes send-control-shift {
+  0%,
+  62% {
+    background-color: rgb(15 134 255);
+    color: rgb(255 255 255);
+  }
+  82%,
+  100% {
+    background-color: rgb(15 134 255);
+    color: rgb(255 255 255);
+  }
+}
+
+@keyframes composer-control-row {
+  0%,
+  34% {
+    transform: translateY(0);
+  }
+  43%,
+  100% {
+    transform: translateY(2.18rem);
+  }
+}
+
+@keyframes execution-title-complete {
+  0%,
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes execution-title-hide {
+  0%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    filter: saturate(1.08);
+  }
+  50% {
+    transform: scale(1.08) translate3d(-1.5%, 1%, 0);
+    filter: saturate(1.28);
+  }
+}
+
+.hero-ambient-bg {
+  animation: ambient-drift 9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+  .hero-cursor-layer {
+    --cursor-opacity: 0;
+    transition: opacity 220ms ease;
+  }
+  
+  .hero-cursor-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 999px;
+    background: rgb(255 255 255);
+    opacity: var(--cursor-opacity);
+    transform: translate3d(50vw, 50vh, 0) translate(-50%, -50%);
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.18),
+      0 0 18px rgb(255 255 255 / 0.38);
+    transition: opacity 160ms ease;
+    will-change: transform;
+  }
+
+  .hero-cursor-dot::before,
+  .hero-cursor-dot::after {
+    content: none;
+  }
+
+.workflow-pill {
+  background: rgb(39 39 42 / 12%);
+  color: rgb(24 24 27);
+}
+
+.workflow-input-button {
+  background: transparent;
+  color: rgb(63 63 70);
+  transition:
+    background-color 650ms ease,
+    color 650ms ease;
+}
+
+.workflow-send-button {
+  background: rgb(15 134 255);
+  color: rgb(255 255 255);
+  transition:
+    background-color 650ms ease,
+    color 650ms ease;
+}
+
+.workflow-instant,
+.workflow-mic {
+  color: rgb(113 113 122);
+}
+
+.hero-intro > * {
+  animation: hero-rise 700ms ease-out both;
+}
+
+.hero-intro > :nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.hero-intro > :nth-child(3) {
+  animation-delay: 190ms;
+}
+
+.hero-intro > :nth-child(4) {
+  animation-delay: 310ms;
+}
+
+.workflow-card-one {
+  animation: hero-rise 720ms ease-out both;
+  animation-delay: 420ms;
+}
+
+.workflow-card-two {
+  background: rgb(244 244 245);
+  border-color: rgb(212 212 216 / 70%);
+  color: rgb(24 24 27);
+  height: 3.3rem;
+  overflow: hidden;
+  animation: chat-input-sequence 4.9s ease-in-out both;
+  animation-delay: 760ms;
+}
+
+.workflow-input-content {
+  min-height: 5.05rem;
+}
+
+.execution-label-active {
+  color: rgb(24 24 27);
+}
+
+.workflow-card-three {
+  max-height: 132px;
+  overflow: hidden;
+  animation:
+    completion-card 5.8s ease-out both,
+    task-card-complete-shrink 8.15s ease-out both;
+}
+
+.workflow-card-one svg {
+  animation: workflow-check 1.6s ease-out both;
+  animation-delay: 1.3s;
+}
+
+.chat-typed {
+  min-width: 0;
+  padding-top: 0;
+  padding-bottom: 0.45rem;
+}
+
+.chat-typed-line {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+}
+
+.chat-typed-line-one {
+  --typing-width: 24.5rem;
+  animation: reveal-inline 1.35s steps(58, end) both;
+  animation-delay: 1.15s;
+}
+
+.chat-typed-line-two {
+  --typing-width: 28.25rem;
+  animation: reveal-inline 1.35s steps(43, end) both;
+  animation-delay: 2.62s;
+}
+
+.instagram-brand-icon {
+  display: inline-flex;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.25rem;
+  vertical-align: -0.16rem;
+  border-radius: 0.35rem;
+  background:
+    radial-gradient(circle at 32% 100%, #fed373 0 18%, transparent 32%),
+    radial-gradient(circle at 20% 115%, #f15245 0 34%, transparent 48%),
+    radial-gradient(circle at 92% 12%, #4f5bd5 0 30%, transparent 48%),
+    linear-gradient(135deg, #833ab4, #fd1d1d 52%, #fcb045);
+  position: relative;
+}
+
+.instagram-brand-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0.26rem;
+  border: 1.5px solid white;
+  border-radius: 0.22rem;
+}
+
+.instagram-brand-icon::after {
+  content: "";
+  position: absolute;
+  width: 0.2rem;
+  height: 0.2rem;
+  right: 0.3rem;
+  top: 0.3rem;
+  border-radius: 999px;
+  background: white;
+  box-shadow: -0.23rem 0.23rem 0 0.08rem transparent;
+}
+
+.workflow-card-two:is(.workflow-card-two) .workflow-input-button {
+  animation:
+    input-control-shift 4.9s ease-in-out both,
+    composer-control-row 4.9s ease-in-out both;
+  animation-delay: 760ms, 760ms;
+}
+
+.workflow-card-two:is(.workflow-card-two) .workflow-send-button {
+  animation:
+    send-control-shift 4.9s ease-in-out both,
+    composer-control-row 4.9s ease-in-out both;
+  animation-delay: 760ms, 760ms;
+}
+
+.workflow-card-two:is(.workflow-card-two) .workflow-instant,
+.workflow-card-two:is(.workflow-card-two) .workflow-mic {
+  animation:
+    input-control-shift 4.9s ease-in-out both,
+    composer-control-row 4.9s ease-in-out both;
+  animation-delay: 760ms, 760ms;
+}
+
+.completion-text {
+  --typing-width: 8.25rem;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: reveal-inline 850ms steps(18, end) both;
+  animation-delay: 5.35s;
+}
+
+.execution-step {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  opacity: 0;
+}
+
+.execution-steps {
+  overflow: hidden;
+  animation: execution-steps-collapse 8.15s ease-out both;
+}
+
+.execution-step-one {
+  animation: execution-step 420ms ease-out both;
+  animation-delay: 6.15s;
+}
+
+.execution-step-two {
+  animation: execution-step 420ms ease-out both;
+  animation-delay: 6.8s;
+}
+
+.execution-step-three {
+  animation: execution-step 420ms ease-out both;
+  animation-delay: 7.45s;
+}
+
+.execution-done-icon,
+.execution-label-done {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.execution-spinner {
+  animation:
+    loader-spin 1s linear infinite,
+    execution-title-hide 7.95s ease-out both;
+}
+
+.execution-label-active {
+  color: rgb(24 24 27);
+  animation:
+    reveal-inline 850ms steps(18, end) both,
+    execution-title-hide 7.95s ease-out both;
+  animation-delay: 5.35s, 0s;
+}
+
+.execution-done-icon,
+.execution-label-done {
+  animation: execution-title-complete 8.05s ease-out both;
+}
+
+.execution-done-icon {
+  left: 0;
+}
+
+.execution-label-done {
+  left: 2rem;
+}
+
+.workflow-thanks {
+  animation: hero-rise 700ms ease-out both;
+  animation-delay: 8.3s;
+}
