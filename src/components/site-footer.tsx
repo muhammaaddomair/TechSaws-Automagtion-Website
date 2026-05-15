@@ -1,0 +1,106 @@
+const columns = [
+  {
+    title: "Services",
+    links: [
+      "Strategy + Delivery",
+      "AI & Automation Audits",
+      "Consulting & Advisory",
+      "Support & Maintenance",
+    ],
+  },
+  {
+    title: "Industries",
+    links: [
+      "Professional Services",
+      "Finance",
+      "Recruitment & HR",
+      "Technology & Software",
+    ],
+  },
+  {
+    title: "Solutions",
+    links: ["Finance", "Operations", "Marketing", "Sales"],
+  },
+  {
+    title: "Company",
+    links: [
+      "Technology",
+      "Insights",
+      "Resources",
+      "FAQs",
+      "Get In Touch",
+      "Terms",
+      "Privacy",
+    ],
+  },
+];
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-white/8 bg-[#080808] px-6 py-8 text-white sm:px-10 xl:px-[120px]">
+      <div className="grid min-h-[34rem] gap-12 lg:grid-cols-[0.9fr_1.6fr_1fr]">
+        <div>
+          <div className="grid w-9 grid-cols-4 gap-1">
+            {Array.from({ length: 15 }).map((_, index) => (
+              <span key={index} className="size-1 bg-white" />
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-10 sm:grid-cols-2">
+          {columns.slice(0, 2).map((column) => (
+            <div key={column.title}>
+              <h3 className="text-base font-bold text-white">{column.title}</h3>
+              <ul className="mt-4 space-y-4">
+                {column.links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-base font-medium text-white/42 transition hover:text-white">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {columns.slice(2).map((column) => (
+            <div key={column.title}>
+              <h3 className="text-base font-bold text-white">{column.title}</h3>
+              <ul className="mt-4 space-y-4">
+                {column.links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-base font-medium text-white/42 transition hover:text-white">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-end justify-between gap-6">
+        <div className="flex items-center gap-3 text-white/62">
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            className="grid size-5 place-items-center rounded-sm bg-white/62 text-[0.65rem] font-black text-black transition hover:bg-white"
+          >
+            in
+          </a>
+          <a
+            href="#"
+            aria-label="YouTube"
+            className="grid h-5 w-6 place-items-center rounded bg-white/62 text-[0.58rem] font-black text-black transition hover:bg-white"
+          >
+            ▶
+          </a>
+        </div>
+        <p className="text-sm text-white/62">© 2025 TechSaws</p>
+      </div>
+    </footer>
+  );
+}

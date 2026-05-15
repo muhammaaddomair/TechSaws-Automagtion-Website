@@ -53,6 +53,8 @@ function iconUrl(icon: string, color: string) {
 function AppIcon({ app }: { app: AppItem }) {
   return (
     <span className="grid size-12 shrink-0 place-items-center rounded bg-white/[0.035]">
+      {/* External brand SVGs are intentionally loaded from Simple Icons. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={iconUrl(app.icon, app.color)}
         alt=""

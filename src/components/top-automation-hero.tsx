@@ -7,14 +7,15 @@ const navItems = ["Industries", "Solutions", "Technology", "Services", "Resource
 export function TopAutomationHero() {
   return (
     <section className="relative isolate min-h-screen overflow-hidden bg-black px-6 pb-10 pt-5 text-white sm:px-10 xl:px-[120px]">
-      <header className="mx-auto flex w-full items-center justify-between gap-8">
-        <a href="#" className="flex items-center gap-2 text-base font-extrabold">
-          <span className="relative grid size-7 place-items-center overflow-hidden rounded-full bg-white">
+      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      <header className="fixed inset-x-0 top-px z-50 mx-auto flex w-full items-center justify-between gap-8 bg-black/72 px-6 py-4 backdrop-blur-xl sm:px-10 xl:px-[120px]">
+        <a href="#" className="flex items-center gap-3 text-xl font-extrabold">
+          <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-white">
             <Image
               src="/techsaw-logo.jpeg"
               alt="TechSaws logo"
-              width={28}
-              height={28}
+              width={40}
+              height={40}
               priority
               className="h-full w-full object-cover"
             />
@@ -45,7 +46,7 @@ export function TopAutomationHero() {
         </a>
       </header>
 
-      <div className="mx-auto flex w-full flex-col pt-18 sm:pt-20 lg:pt-18">
+      <div className="mx-auto flex w-full flex-col pt-28 sm:pt-32 lg:pt-30">
         <div className="max-w-none">
           <p className="mb-5 text-[0.7rem] font-bold uppercase tracking-[0.36em] text-blue-500">
             AI Automation Agency

@@ -3,6 +3,7 @@ import { FaqSection } from "@/components/faq-section";
 import { HeroAgentTabs } from "@/components/hero-agent-tabs";
 import { LoadingScreen } from "@/components/loading-screen";
 import { SolutionsSection } from "@/components/solutions-section";
+import { SiteFooter } from "@/components/site-footer";
 import { TechnologySection } from "@/components/technology-section";
 import { TopAutomationHero } from "@/components/top-automation-hero";
 
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroAgentTabs />
       </section>
       <CtaSection />
+      <SiteFooter />
     </main>
   );
 }
