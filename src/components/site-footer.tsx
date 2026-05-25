@@ -1,36 +1,39 @@
+import Link from "next/link";
+import { serviceItems } from "@/lib/services";
+
 const columns = [
   {
     title: "Services",
-    links: [
-      "Strategy + Delivery",
-      "AI & Automation Audits",
-      "Consulting & Advisory",
-      "Support & Maintenance",
-    ],
+    links: serviceItems.slice(0, 4),
   },
   {
     title: "Industries",
     links: [
-      "Professional Services",
-      "Finance",
-      "Recruitment & HR",
-      "Technology & Software",
+      { title: "Professional Services", href: "#" },
+      { title: "Finance", href: "#" },
+      { title: "Recruitment & HR", href: "#" },
+      { title: "Technology & Software", href: "#" },
     ],
   },
   {
     title: "Solutions",
-    links: ["Finance", "Operations", "Marketing", "Sales"],
+    links: [
+      { title: "Conversion & Experience Systems", href: "/services/conversion-experience" },
+      { title: "Strategic Systems & Digital Architecture", href: "/services/strategy-architecture" },
+      { title: "Cloud & DevOps", href: "/services/specialized-systems" },
+      { title: "Data & Intelligence", href: "/services/specialized-systems" },
+    ],
   },
   {
     title: "Company",
     links: [
-      "Technology",
-      "Insights",
-      "Resources",
-      "FAQs",
-      "Get In Touch",
-      "Terms",
-      "Privacy",
+      { title: "Technology", href: "#" },
+      { title: "Insights", href: "#" },
+      { title: "Resources", href: "#" },
+      { title: "FAQs", href: "/faq" },
+      { title: "Get In Touch", href: "#contact" },
+      { title: "Terms", href: "#" },
+      { title: "Privacy", href: "#" },
     ],
   },
 ];
@@ -53,10 +56,10 @@ export function SiteFooter() {
               <h3 className="text-base font-bold text-white">{column.title}</h3>
               <ul className="mt-4 space-y-4">
                 {column.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-base font-medium text-white/42 transition hover:text-white">
-                      {link}
-                    </a>
+                  <li key={link.title}>
+                    <Link href={link.href} className="text-base font-medium text-white/42 transition hover:text-white">
+                      {link.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -70,10 +73,10 @@ export function SiteFooter() {
               <h3 className="text-base font-bold text-white">{column.title}</h3>
               <ul className="mt-4 space-y-4">
                 {column.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-base font-medium text-white/42 transition hover:text-white">
-                      {link}
-                    </a>
+                  <li key={link.title}>
+                    <Link href={link.href} className="text-base font-medium text-white/42 transition hover:text-white">
+                      {link.title}
+                    </Link>
                   </li>
                 ))}
               </ul>

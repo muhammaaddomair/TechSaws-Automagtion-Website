@@ -5,44 +5,44 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Will this replace my team?",
+    question: "What kinds of systems do you build?",
     answer:
-      "No. Our automation systems remove repetitive manual work so your team can focus on higher-value strategy, service, and growth.",
+      "We build AI automation, backend infrastructure, security, revenue, conversion, product, cloud, data, and support systems.",
   },
   {
-    question: "What's the difference between AI and automation?",
+    question: "Can you work with our existing stack?",
     answer:
-      "Automation follows defined workflows. AI adds judgement, classification, drafting, summarisation, and decision support inside those workflows.",
+      "Yes. We integrate with CRMs, APIs, databases, cloud platforms, websites, internal tools, payment systems, and existing workflows.",
   },
   {
     question: "How long does it take to see results?",
     answer:
-      "Most focused workflows can show value within the first few weeks, depending on system access, complexity, and approval speed.",
+      "Focused systems can show value within weeks, while larger infrastructure, security, or product builds are planned in clear phases.",
   },
   {
-    question: "Is AI suitable for small or mid-sized businesses?",
+    question: "Do you handle security as part of the build?",
     answer:
-      "Yes. Small and mid-sized teams often benefit fastest because automation can remove bottlenecks without adding headcount.",
+      "Yes. We design around access control, secure architecture, audit logging, monitoring, IAM, and practical compliance readiness.",
   },
   {
-    question: "What types of processes can be automated with AI?",
+    question: "Can you improve revenue and conversion systems?",
     answer:
-      "Lead response, onboarding, reporting, scheduling, follow-ups, document handling, customer support, and internal operations are common starting points.",
+      "Yes. We build lead generation, outreach, funnels, CRM pipelines, analytics, high-conversion websites, and performance systems.",
   },
   {
-    question: "What tools or platforms do you work with?",
+    question: "Do you build internal tools and dashboards?",
     answer:
-      "We work across CRMs, calendars, marketing tools, AI models, file systems, databases, websites, and custom APIs.",
+      "Yes. We create operational dashboards, internal systems, portals, KPI views, data pipelines, and custom workflow tools.",
   },
   {
-    question: "Is this secure and compliant?",
+    question: "Can you maintain and scale systems after launch?",
     answer:
-      "We design workflows with access control, least-privilege permissions, auditability, and sensible data handling from the start.",
+      "Yes. We support continuous development, SLA-based maintenance, AI enhancements, performance optimization, and system scaling.",
   },
   {
     question: "How do we get started?",
     answer:
-      "We begin with a short discovery call, map the highest-value automation opportunities, then build the first workflow in focused phases.",
+      "We start with a discovery call, map the highest-value system opportunities, then define the architecture and first build phase.",
   },
 ];
 
@@ -50,9 +50,9 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-black px-5 py-24 text-white sm:px-8 xl:px-16">
+    <section className="bg-black px-6 py-24 text-white sm:px-10 xl:px-[120px]">
       <div className="mx-auto w-full">
-        <h2 className="w-full text-4xl font-medium leading-[1.18] tracking-[-0.045em] text-white/42 sm:text-5xl lg:text-6xl">
+        <h2 className="w-full text-[48px] font-medium leading-[1.18] tracking-[-0.045em] text-white/42">
           <span className="text-white">FAQs.</span> We&apos;ve answered some
           of the most common questions below about how we work and what to
           expect.
@@ -78,7 +78,7 @@ export function FaqSection() {
                   aria-expanded={isOpen}
                 >
                   <span
-                    className={`text-xl font-medium tracking-[-0.045em] transition ${
+                    className={`text-[20px] font-medium tracking-[-0.045em] transition ${
                       isOpen ? "text-white" : "text-white/52"
                     }`}
                   >
@@ -100,7 +100,7 @@ export function FaqSection() {
                     isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="max-w-5xl px-7 pb-7 text-base leading-7 text-white/56">
+                  <p className="max-w-5xl px-7 pb-7 text-[16px] leading-7 text-white/56">
                     {faq.answer}
                   </p>
                 </div>

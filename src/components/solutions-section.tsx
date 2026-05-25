@@ -1,48 +1,48 @@
 const solutions = [
   {
-    category: "Finance",
-    title: "Smart Invoice Reminders",
-    body: "Automate invoice follow-ups with smart triggers to reduce late payments and boost cash flow - no manual chasing required.",
+    category: "Experience",
+    title: "Conversion & Experience Systems",
+    body: "Design and build high-performance websites, landing pages, funnels, UX improvements, and performance systems that convert visitors into customers.",
   },
   {
-    category: "Operations",
-    title: "Automated Review Collection",
-    body: "Trigger review requests post-service or milestone to grow 5-star feedback and build trust - without lifting a finger.",
+    category: "Strategy",
+    title: "Strategic Systems & Digital Architecture",
+    body: "Plan system architecture, SaaS strategy, AI adoption, infrastructure, and CTO-level decisions before your team commits to a build.",
   },
   {
-    category: "Operations",
-    title: "Automated Onboarding",
-    body: "Deliver a smooth client onboarding journey with automated emails, tasks, and scheduling - all synced to your systems.",
+    category: "Platforms",
+    title: "Product & Platform Systems",
+    body: "Create custom web apps, portals, internal systems, white-label platforms, and onboarding or KYC systems tailored to your operations.",
   },
   {
-    category: "Marketing",
-    title: "Lead Magnet Nurturing",
-    body: "Turn downloads into leads with automated email journeys that follow up, educate, and drive conversion - on autopilot.",
+    category: "Payments",
+    title: "Monetization & Payments",
+    body: "Build subscription, billing, checkout, payment integration, and revenue tracking systems that support reliable monetization at scale.",
   },
   {
-    category: "Sales",
-    title: "Automated Booking Systems",
-    body: "Let leads instantly book the right time with the right person - synced with your calendar, CRM, and workflows.",
+    category: "Integration",
+    title: "Integrations & Middleware",
+    body: "Connect APIs, webhooks, event systems, CRMs, ERPs, and middleware so your tools exchange data cleanly and reliably.",
   },
   {
-    category: "Sales",
-    title: "Smart Lead Responders",
-    body: "Auto-respond to new leads in seconds with personalised replies, booking links, and CRM updates - speed wins deals.",
+    category: "Cloud",
+    title: "Cloud & DevOps",
+    body: "Design cloud architecture across AWS, GCP, or Azure with CI/CD pipelines, containerization, Kubernetes, and deployment workflows.",
   },
   {
-    category: "Marketing",
-    title: "Cyclic Content Generator",
-    body: "Generate and recycle marketing content with AI-driven prompts and scheduling - keeping your brand visible, consistently.",
+    category: "Data",
+    title: "Data & Intelligence",
+    body: "Create BI dashboards, KPI systems, ETL pipelines, lead scoring, and predictive analytics that make performance easier to measure.",
   },
   {
-    category: "Sales",
-    title: "Hiring Pipelines",
-    body: "Streamline recruitment with automated workflows for applications, screening, and interview scheduling - fast, fair hiring.",
+    category: "Security",
+    title: "Security Enhancements",
+    body: "Strengthen systems with threat modeling, zero-trust architecture, secure access controls, audit logging, and monitoring foundations.",
   },
   {
-    category: "Sales",
-    title: "Sales Outreach Engines",
-    body: "Power consistent outbound with automated, sequenced emails and CRM updates that keep your pipeline full - and moving.",
+    category: "Scaling",
+    title: "Support & Scaling",
+    body: "Keep systems improving with SLA-based maintenance, continuous development, AI enhancements, performance optimization, and scaling support.",
   },
 ];
 
@@ -55,8 +55,8 @@ export function SolutionsSection() {
             Solutions
           </h2>
           <p className="max-w-3xl text-xl leading-8 text-white/62">
-            Discover a range of smart automation solutions designed to save time,
-            reduce manual work, and unlock new efficiencies across your business.
+            Explore specialized systems for automation, infrastructure, security,
+            growth, conversion, payments, data, and long-term technical scale.
           </p>
         </div>
 

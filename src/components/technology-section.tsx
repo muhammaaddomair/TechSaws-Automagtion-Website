@@ -86,7 +86,7 @@ export function TechnologySection() {
   return (
     <section className="bg-black px-6 py-24 text-white sm:px-10 xl:px-[120px]">
       <div className="mx-auto w-full">
-        <h2 className="w-full text-5xl font-medium leading-[1.18] tracking-[-0.045em] text-white/42 sm:text-6xl lg:text-7xl">
+        <h2 className="w-full text-[48px] font-medium leading-[1.18] tracking-[-0.045em] text-white/42">
           <span className="text-white">Technology.</span> We work confidently
           across hundreds of apps - so you don&apos;t have to. From setup to
           seamless integration, we handle it all while you focus on what matters.
