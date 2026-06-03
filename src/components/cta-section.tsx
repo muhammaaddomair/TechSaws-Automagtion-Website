@@ -1,6 +1,17 @@
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
-export function CtaSection() {
+type CtaSectionProps = {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+};
+
+export function CtaSection({
+  title = "Build Your Next System",
+  description = "Whether you need automation, infrastructure, security, or a growth system, our team can map the right architecture and build path. Click the button below to request an appointment.",
+  buttonText = "Get in Touch",
+}: CtaSectionProps) {
   return (
     <section className="bg-black px-5 pb-16 pt-0 text-white sm:px-8 xl:px-16">
       <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-md bg-[#050505] px-6 text-center">
@@ -9,20 +20,18 @@ export function CtaSection() {
 
         <div className="relative z-10 mx-auto max-w-5xl">
           <h2 className="text-5xl font-medium leading-none tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-            Build Your Next System
+            {title}
           </h2>
           <p className="mx-auto mt-8 max-w-4xl text-lg font-semibold leading-8 text-white/60 sm:text-xl">
-            Whether you need automation, infrastructure, security, or a growth
-            system, our team can map the right architecture and build path.
-            Click the button below to request an appointment.
+            {description}
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="mt-9 inline-flex h-14 items-center justify-center gap-2 rounded bg-blue-600 px-7 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500"
           >
-            Get in Touch
+            {buttonText}
             <ChevronRight className="size-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 const faqs = [
   {
@@ -46,20 +46,36 @@ const faqs = [
   },
 ];
 
-export function FaqSection() {
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+type FaqSectionProps = {
+  items?: FaqItem[];
+  heading?: ReactNode;
+};
+
+export function FaqSection({
+  items = faqs,
+  heading = (
+    <>
+      <span className="text-white">FAQs.</span> We&apos;ve answered some of the
+      most common questions below about how we work and what to expect.
+    </>
+  ),
+}: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="bg-black px-6 py-24 text-white sm:px-10 xl:px-[120px]">
       <div className="mx-auto w-full">
         <h2 className="w-full text-[48px] font-medium leading-[1.18] tracking-[-0.045em] text-white/42">
-          <span className="text-white">FAQs.</span> We&apos;ve answered some
-          of the most common questions below about how we work and what to
-          expect.
+          {heading}
         </h2>
 
         <div className="mt-20 space-y-2">
-          {faqs.map((faq, index) => {
+          {items.map((faq, index) => {
             const isOpen = openIndex === index;
             const answerId = `faq-answer-${index}`;
             const buttonId = `faq-button-${index}`;

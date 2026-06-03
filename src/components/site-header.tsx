@@ -85,12 +85,12 @@ export function SiteHeader() {
         )}
       </nav>
 
-      <a
-        href="#contact"
+      <Link
+        href="/contact"
         className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_10px_30px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5 hover:bg-blue-500"
       >
         Get in touch
-      </a>
+      </Link>
     </header>
   );
 }

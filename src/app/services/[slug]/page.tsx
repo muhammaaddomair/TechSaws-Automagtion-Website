@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { AiAutomationShowcase } from "@/components/ai-automation-showcase";
 import { serviceItems } from "@/lib/services";
 
 export function generateStaticParams() {
@@ -15,6 +16,14 @@ export default async function ServicePage({
 
   if (!service) {
     notFound();
+  }
+
+  if (slug === "ai-automation") {
+    return (
+      <main className="min-h-screen bg-black" aria-label={service.title}>
+        <AiAutomationShowcase />
+      </main>
+    );
   }
 
   return <main className="min-h-screen bg-black" aria-label={service.title} />;
