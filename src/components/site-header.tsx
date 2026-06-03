@@ -9,14 +9,14 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-px z-50 mx-auto flex w-full items-center justify-between gap-8 bg-black/72 px-6 py-4 text-white backdrop-blur-xl sm:px-10 xl:px-[120px]">
       <Link href="/" className="flex items-center gap-3 text-xl font-extrabold">
-        <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-white">
+        <span className="relative grid size-11 place-items-center overflow-hidden rounded-md bg-black ring-1 ring-white/12">
           <Image
-            src="/techsaw-logo.jpeg"
+            src="/Techsaws-Logo.png"
             alt="TechSaws logo"
-            width={40}
-            height={40}
+            width={44}
+            height={44}
             priority
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
           />
         </span>
         TechSaws

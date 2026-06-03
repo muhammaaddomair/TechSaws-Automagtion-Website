@@ -1,6 +1,17 @@
 import { TransparentVideo } from "@/components/transparent-video";
+import Image from "next/image";
 
-export function HeroAgentTabs() {
+type HeroAgentTabsProps = {
+  visual?: "video" | "robot";
+  title?: string;
+  description?: string;
+};
+
+export function HeroAgentTabs({
+  visual = "video",
+  title = "We build automation systems that make teams faster.",
+  description = "TechSaws helps businesses connect tools, automate repetitive work, and launch reliable digital workflows. Our focus is simple: cleaner systems, faster execution, and software that keeps compounding value.",
+}: HeroAgentTabsProps) {
   return (
     <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
       <div className="max-w-2xl text-left">
@@ -8,21 +19,32 @@ export function HeroAgentTabs() {
           About TechSaws
         </p>
         <h2 className="text-[44px] font-extrabold leading-[1.05] tracking-normal text-white">
-          We build automation systems that make teams faster.
+          {title}
         </h2>
         <p className="mt-6 max-w-xl text-[18px] leading-8 text-white/68">
-          TechSaws helps businesses connect tools, automate repetitive work, and
-          launch reliable digital workflows. Our focus is simple: cleaner
-          systems, faster execution, and software that keeps compounding value.
+          {description}
         </p>
       </div>
 
       <div className="relative min-h-[18rem] lg:min-h-[24rem]">
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto w-full max-w-[42rem]">
-          <TransparentVideo
-            src="/Homepage-hero-video.mp4"
-            className="aspect-video w-full drop-shadow-[0_28px_70px_rgba(229,9,20,0.22)]"
-          />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          {visual === "robot" ? (
+            <div className="relative flex w-full max-w-[28rem] items-center justify-center overflow-hidden bg-[#030303] [mask-image:radial-gradient(ellipse_at_center,black_46%,rgba(0,0,0,0.86)_62%,transparent_82%)]">
+              <Image
+                src="/robot1-gif.gif"
+                alt="AI automation robot assistant"
+                width={980}
+                height={700}
+                unoptimized
+                className="aspect-[1.35/1] w-full object-cover object-center brightness-110 contrast-125 drop-shadow-[0_32px_90px_rgba(37,99,235,0.28)]"
+              />
+            </div>
+          ) : (
+            <TransparentVideo
+              src="/Homepage-hero-video.mp4"
+              className="aspect-video w-full drop-shadow-[0_28px_70px_rgba(229,9,20,0.22)]"
+            />
+          )}
         </div>
       </div>
     </div>

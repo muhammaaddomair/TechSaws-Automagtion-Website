@@ -28,14 +28,14 @@ export function LoadingScreen() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black text-white transition-opacity duration-500">
       <div className="mb-8 flex flex-col items-center gap-4">
-        <span className="relative flex size-20 overflow-hidden rounded-2xl bg-black ring-1 ring-white/15">
+        <span className="relative flex size-24 overflow-hidden rounded-2xl bg-black ring-1 ring-white/15">
           <Image
-            src="/techsaw-logo.jpeg"
+            src="/Techsaws-Logo.png"
             alt="Techsaws logo"
-            width={80}
-            height={80}
+            width={96}
+            height={96}
             priority
-            className="object-cover"
+            className="h-full w-full object-contain"
           />
         </span>
         <span className="text-sm font-extrabold tracking-[0.32em] text-white/80">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { serviceItems } from "@/lib/services";
 
 const columns = [
@@ -43,11 +44,18 @@ export function SiteFooter() {
     <footer className="border-t border-white/8 bg-[#080808] px-6 py-8 text-white sm:px-10 xl:px-[120px]">
       <div className="grid min-h-[34rem] gap-12 lg:grid-cols-[0.9fr_1.6fr_1fr]">
         <div>
-          <div className="grid w-9 grid-cols-4 gap-1">
-            {Array.from({ length: 15 }).map((_, index) => (
-              <span key={index} className="size-1 bg-white" />
-            ))}
-          </div>
+          <Link href="/" className="inline-flex items-center gap-3">
+            <span className="relative grid size-14 place-items-center overflow-hidden rounded-md bg-black ring-1 ring-white/12">
+              <Image
+                src="/Techsaws-Logo.png"
+                alt="TechSaws logo"
+                width={56}
+                height={56}
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <span className="text-xl font-extrabold text-white">TechSaws</span>
+          </Link>
         </div>
 
         <div className="grid gap-10 sm:grid-cols-2">

@@ -131,7 +131,7 @@ function PixelMotionPanel({ featured = false }: { featured?: boolean }) {
   );
 }
 
-function AutomationContactSection() {
+export function AutomationContactSection() {
   return (
     <section className="flex h-[90vh] overflow-hidden bg-white px-6 py-8 text-black sm:px-10 lg:py-10 xl:px-[120px]">
       <div className="mx-auto grid w-full max-w-[1500px] gap-10 self-center lg:grid-cols-[0.42fr_0.58fr] lg:gap-16">
