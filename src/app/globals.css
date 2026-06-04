@@ -475,6 +475,25 @@
   }
 }
 
+@keyframes backend-pill-lines {
+  from {
+    transform: translateX(-42%) rotate(0deg);
+  }
+  to {
+    transform: translateX(42%) rotate(360deg);
+  }
+}
+
+@keyframes backend-pill-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 @keyframes chatgpt-type-line-one-loop {
   0% {
     clip-path: inset(0 100% 0 0);
@@ -853,6 +872,42 @@
     linear-gradient(120deg, #020617, #07111f, #050816, #001c1b);
   background-size: 160% 160%;
   animation: automation-gradient-shift 9s ease-in-out infinite;
+}
+
+.backend-hero-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(110deg, rgb(59 130 246), rgb(34 211 238), rgb(16 185 129), rgb(255 255 255), rgb(59 130 246));
+  background-size: 240% 240%;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: backend-pill-gradient 5.8s ease-in-out infinite;
+}
+
+.backend-hero-pill-line {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgb(59 130 246 / 0.9) 16%, transparent 23%),
+    linear-gradient(90deg, transparent 0 34%, rgb(34 211 238 / 0.8) 38%, transparent 45%),
+    linear-gradient(90deg, transparent 0 58%, rgb(16 185 129 / 0.72) 62%, transparent 69%),
+    linear-gradient(90deg, transparent 0 78%, rgb(255 255 255 / 0.78) 82%, transparent 88%);
+  background-size: 220% 100%;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.95;
+  animation: backend-pill-gradient 3.8s linear infinite;
 }
 
 .chatgpt-composer {

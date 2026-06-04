@@ -52,7 +52,7 @@ type FaqItem = {
 };
 
 type FaqSectionProps = {
-  items?: FaqItem[];
+  items?: readonly FaqItem[];
   heading?: ReactNode;
 };
 
