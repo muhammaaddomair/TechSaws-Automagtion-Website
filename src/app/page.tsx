@@ -1,11 +1,11 @@
-import { CtaSection } from "@/components/cta-section";
-import { FaqSection } from "@/components/faq-section";
-import { HeroAgentTabs } from "@/components/hero-agent-tabs";
-import { LoadingScreen } from "@/components/loading-screen";
-import { ServicesSection } from "@/components/services-section";
-import { SolutionsSection } from "@/components/solutions-section";
-import { TechnologySection } from "@/components/technology-section";
-import { TopAutomationHero } from "@/components/top-automation-hero";
+import { ServicesSection } from "@/components/home/services-section";
+import { SolutionsSection } from "@/components/home/solutions-section";
+import { TechnologySection } from "@/components/home/technology-section";
+import { TopAutomationHero } from "@/components/home/top-automation-hero";
+import { LoadingScreen } from "@/components/layout/loading-screen";
+import { CtaSection } from "@/components/sections/cta-section";
+import { FaqSection } from "@/components/sections/faq-section";
+import { HeroAgentTabs } from "@/components/sections/hero-agent-tabs";
 
 export default function Home() {
   return (

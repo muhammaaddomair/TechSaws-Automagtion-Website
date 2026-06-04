@@ -1,34 +1,66 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileSearch, Gauge, Network, ServerCog } from "lucide-react";
 import {
   AiAutomationShowcase,
   AutomationContactSection,
-} from "@/components/ai-automation-showcase";
-import { CtaSection } from "@/components/cta-section";
-import { FaqSection } from "@/components/faq-section";
-import { HeroAgentTabs } from "@/components/hero-agent-tabs";
+} from "@/components/services/ai-automation-showcase";
+import { CtaSection } from "@/components/sections/cta-section";
+import { FaqSection } from "@/components/sections/faq-section";
+import { HeroAgentTabs } from "@/components/sections/hero-agent-tabs";
 import { serviceItems } from "@/lib/services";
-import backendHeroImage from "../../../../public/backend-page-img.png";
-import backendServiceImage from "../../../../public/backend-service-img1.png";
+import cyberDefenseHeroGif from "../../../../public/assets/animations/cyber-defense-hero.gif";
+import backendHeroImage from "../../../../public/assets/images/services/backend-infrastructure-hero.png";
+import backendServiceImage from "../../../../public/assets/images/services/backend-infrastructure-process-bg.png";
 
 const backendProcessCards = [
   {
     title: "Audit the stack",
     text: "We review your APIs, database structure, deployment flow, bottlenecks, risks, and current operating constraints.",
+    icon: FileSearch,
+    iconStyle:
+      "border-sky-300/36 bg-sky-400/14 text-sky-200 shadow-[0_18px_44px_rgba(56,189,248,0.22)]",
   },
   {
     title: "Design the architecture",
     text: "We define the right service boundaries, data model, cloud approach, security controls, and delivery roadmap.",
+    icon: Network,
+    iconStyle:
+      "border-violet-300/36 bg-violet-400/14 text-violet-200 shadow-[0_18px_44px_rgba(167,139,250,0.2)]",
   },
   {
     title: "Build the foundation",
     text: "We implement scalable backend services, integrations, infrastructure, CI/CD, monitoring, and documentation.",
+    icon: ServerCog,
+    iconStyle:
+      "border-emerald-300/36 bg-emerald-400/14 text-emerald-200 shadow-[0_18px_44px_rgba(52,211,153,0.2)]",
   },
   {
     title: "Scale and support",
     text: "We tune performance, improve reliability, support releases, and keep the platform ready for future growth.",
+    icon: Gauge,
+    iconStyle:
+      "border-amber-300/36 bg-amber-400/14 text-amber-200 shadow-[0_18px_44px_rgba(251,191,36,0.18)]",
+  },
+];
+
+const cyberBuildCards = [
+  {
+    title: "Attack surface mapping",
+    text: "Identify exposed systems, risky access paths, weak configurations, and the assets that need the most protection.",
+  },
+  {
+    title: "Vulnerability discovery",
+    text: "Test applications, infrastructure, APIs, and workflows to find exploitable issues before they become incidents.",
+  },
+  {
+    title: "Access control hardening",
+    text: "Improve IAM, permissions, authentication, secrets handling, and admin workflows so access stays intentional.",
+  },
+  {
+    title: "Incident-ready monitoring",
+    text: "Build logging, alerts, response playbooks, and visibility systems that help teams detect and act faster.",
   },
 ];
 
@@ -275,12 +307,14 @@ function StandardServicePage({
 }) {
   const content = serviceContent[slug];
   const isBackendPage = slug === "backend-infrastructure";
+  const isCyberDefensePage = slug === "cyber-defense";
+  const isFeatureHero = isBackendPage || isCyberDefensePage;
 
   return (
     <>
       <section
         className={`relative isolate overflow-hidden bg-black px-6 text-white sm:px-10 xl:px-[120px] ${
-          isBackendPage
+          isFeatureHero
             ? "flex min-h-screen items-center py-40 text-center"
             : "pb-24 pt-36"
         }`}
@@ -297,63 +331,83 @@ function StandardServicePage({
             />
             <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.44)_0%,rgba(0,0,0,0.56)_56%,rgba(0,0,0,0.84)_100%),radial-gradient(circle_at_50%_46%,rgba(37,99,235,0.18),transparent_38%)]" />
           </>
+        ) : isCyberDefensePage ? (
+          <>
+            <Image
+              src={cyberDefenseHeroGif}
+              alt=""
+              fill
+              priority
+              unoptimized
+              sizes="100vw"
+              className="absolute inset-0 -z-20 object-cover"
+            />
+          </>
         ) : (
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_84%_14%,rgba(37,99,235,0.28),transparent_34%),radial-gradient(circle_at_12%_82%,rgba(16,185,129,0.1),transparent_30%),linear-gradient(180deg,#050505_0%,#000_68%)]" />
         )}
-        <div className={`mx-auto ${isBackendPage ? "max-w-5xl" : "max-w-6xl"}`}>
+        <div className={`mx-auto ${isFeatureHero ? "max-w-5xl" : "max-w-6xl"}`}>
           <p
             className={
-              isBackendPage
+              isFeatureHero
                 ? "backend-hero-pill relative mx-auto inline-flex h-9 items-center overflow-hidden rounded-full border border-white/20 px-5 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-[0_16px_46px_rgba(37,99,235,0.18)] backdrop-blur-md"
                 : "text-sm font-bold uppercase tracking-[0.16em] text-blue-400"
             }
           >
-            {isBackendPage ? (
+            {isFeatureHero ? (
               <span className="backend-hero-pill-line" aria-hidden="true" />
             ) : null}
-            <span className="relative z-10">
-            {content.eyebrow}
-            </span>
+            <span className="relative z-10">{content.eyebrow}</span>
           </p>
           <h1
             className={`mt-5 text-6xl font-medium leading-none tracking-[-0.06em] text-white sm:text-7xl lg:text-[92px] ${
-              isBackendPage ? "mx-auto max-w-5xl" : "max-w-5xl"
+              isFeatureHero ? "mx-auto max-w-5xl" : "max-w-5xl"
             }`}
           >
             {content.headline}
           </h1>
           <p
             className={`mt-7 max-w-3xl text-lg font-medium leading-8 text-white/60 sm:text-xl ${
-              isBackendPage ? "mx-auto" : ""
+              isFeatureHero ? "mx-auto" : ""
             }`}
           >
             {content.intro}
           </p>
-          {isBackendPage ? (
+          {isFeatureHero ? (
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                href="/contact"
+                href="/connect"
                 className="inline-flex h-13 items-center justify-center rounded-md bg-blue-600 px-7 text-sm font-bold uppercase tracking-wide text-white shadow-[0_18px_46px_rgba(37,99,235,0.34)] transition hover:-translate-y-0.5 hover:bg-blue-500"
               >
-                Start a Backend Project
+                {isCyberDefensePage
+                  ? "Start a Security Review"
+                  : "Start a Backend Project"}
               </Link>
               <Link
                 href="#service-details"
                 className="inline-flex h-13 items-center justify-center rounded-md border border-white/22 bg-white/[0.06] px-7 text-sm font-bold uppercase tracking-wide text-white transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.1]"
               >
-                View Capabilities
+                {isCyberDefensePage ? "View Security Scope" : "View Capabilities"}
               </Link>
             </div>
           ) : null}
         </div>
       </section>
 
-      {isBackendPage ? (
+      {isFeatureHero ? (
         <section className="relative isolate overflow-hidden bg-black px-7 py-10 sm:px-12 lg:px-20">
           <HeroAgentTabs
             visual="robot"
-            title="Backend systems built to scale."
-            description="TechSaws helps teams design APIs, databases, cloud infrastructure, deployment pipelines, and operational systems that stay reliable as usage, teams, and product complexity grow."
+            title={
+              isCyberDefensePage
+                ? "Security systems built for resilience."
+                : "Backend systems built to scale."
+            }
+            description={
+              isCyberDefensePage
+                ? "TechSaws helps teams uncover vulnerabilities, strengthen access controls, harden infrastructure, and build security workflows that reduce risk before it turns into disruption."
+                : "TechSaws helps teams design APIs, databases, cloud infrastructure, deployment pipelines, and operational systems that stay reliable as usage, teams, and product complexity grow."
+            }
           />
         </section>
       ) : null}
@@ -384,28 +438,76 @@ function StandardServicePage({
             </div>
 
             <div className="mt-10 grid gap-4 lg:grid-cols-[1fr_40px_1fr_40px_1fr_40px_1fr] lg:items-stretch">
-              {backendProcessCards.map((card, index) => (
-                <div key={card.title} className="contents">
-                  <div className="min-h-[240px] rounded-md border border-white/24 bg-white/[0.08] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.22)] backdrop-blur-[6px]">
-                    <span className="text-[48px] font-semibold leading-none tracking-[-0.06em] text-white/44">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-14 text-[22px] font-semibold leading-tight tracking-[-0.045em] text-white">
-                      {card.title}
-                    </h3>
-                    <p className="mt-5 text-base font-medium leading-7 text-white/62">
-                      {card.text}
-                    </p>
-                  </div>
+              {backendProcessCards.map((card, index) => {
+                const Icon = card.icon;
 
-                  {index < backendProcessCards.length - 1 ? (
-                    <div className="hidden items-center justify-center lg:flex">
-                      <span className="grid place-items-center text-white/72">
-                        <ArrowRight className="size-8" strokeWidth={1.8} />
+                return (
+                  <div key={card.title} className="contents">
+                    <div className="min-h-[240px] rounded-md border border-white/24 bg-white/[0.08] p-5 shadow-[0_28px_80px_rgba(0,0,0,0.22)] backdrop-blur-[6px]">
+                      <span
+                        className={`grid size-14 place-items-center rounded-full border ${card.iconStyle}`}
+                      >
+                        <Icon className="size-7" strokeWidth={1.8} />
                       </span>
+                      <h3 className="mt-14 text-[22px] font-semibold leading-tight tracking-[-0.045em] text-white">
+                        {card.title}
+                      </h3>
+                      <p className="mt-5 text-base font-medium leading-7 text-white/62">
+                        {card.text}
+                      </p>
                     </div>
-                  ) : null}
-                </div>
+
+                    {index < backendProcessCards.length - 1 ? (
+                      <div className="hidden items-center justify-center lg:flex">
+                        <span className="grid place-items-center text-white/72">
+                          <ArrowRight className="size-8" strokeWidth={1.8} />
+                        </span>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : isCyberDefensePage ? (
+        <section
+          id="service-details"
+          className="relative isolate flex min-h-[70vh] items-center overflow-hidden bg-black px-6 py-12 text-white sm:px-10 xl:px-[120px]"
+        >
+          <video
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            src="/assets/backgrounds/cyber-defense-build-bg.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.42)_0%,rgba(0,0,0,0.24)_48%,rgba(0,0,0,0.7)_100%),radial-gradient(circle_at_50%_18%,rgba(37,99,235,0.18),transparent_34%)]" />
+
+          <div className="mx-auto max-w-7xl">
+            <div>
+              <h2 className="w-full text-[48px] font-medium leading-[1.18] tracking-[-0.045em] text-white/42">
+                <span className="text-white">What we build.</span> Security
+                foundations that reveal risk and strengthen response.
+              </h2>
+            </div>
+
+            <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {cyberBuildCards.map((card) => (
+                <article
+                  key={card.title}
+                  className="min-h-[225px] rounded-md border border-white/22 bg-white/[0.08] p-6 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-[10px]"
+                >
+                  <div className="h-px w-16 bg-gradient-to-r from-blue-300 via-white/70 to-transparent" />
+                  <h3 className="mt-12 text-[22px] font-semibold leading-tight tracking-[-0.045em] text-white">
+                    {card.title}
+                  </h3>
+                  <p className="mt-5 text-base font-medium leading-7 text-white/64">
+                    {card.text}
+                  </p>
+                </article>
               ))}
             </div>
           </div>
@@ -450,7 +552,7 @@ function StandardServicePage({
         </section>
       )}
 
-      {isBackendPage ? <AutomationContactSection /> : null}
+      {isFeatureHero ? <AutomationContactSection /> : null}
 
       <FaqSection
         items={content.faqs}
